@@ -1,0 +1,56 @@
+name: Deploy guide to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate guide project
+        id: project
+        shell: bash
+        run: |
+          if [ -f vite.pages.config.ts ]; then
+            echo 'dir=.' >> "$GITHUB_OUTPUT"
+          elif [ -f 攻略站/vite.pages.config.ts ]; then
+            echo 'dir=攻略站' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Guide project not found' >&2
+            exit 1
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '11.19.0'
+          run_install: false
+      - name: Install dependencies
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: pnpm install --frozen-lockfile
+      - name: Build static site
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: pnpm build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.project.outputs.dir }}/dist-pages
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
