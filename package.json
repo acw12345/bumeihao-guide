@@ -9,6 +9,7 @@
     "dev": "vite --config vite.pages.config.ts --port 3000",
     "build": "tsc -p tsconfig.pages.json && vite build --config vite.pages.config.ts",
     "start": "vite preview --config vite.pages.config.ts --port 3000",
+    "audit:routes": "node scripts/audit-routes.mjs",
     "lint": "oxlint",
     "format": "oxfmt",
     "dev:sites": "vinext dev",
