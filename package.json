@@ -7,8 +7,7 @@
   },
   "scripts": {
     "dev": "vite --config vite.pages.config.ts --port 3000",
-    "build": "vinext build",
-    "build:pages": "tsc -p tsconfig.pages.json && vite build --config vite.pages.config.ts",
+    "build": "tsc -p tsconfig.pages.json && vite build --config vite.pages.config.ts",
     "start": "vite preview --config vite.pages.config.ts --port 3000",
     "audit:routes": "node scripts/audit-routes.mjs",
     "lint": "oxlint",

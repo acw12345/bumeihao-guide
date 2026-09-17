@@ -7946,151 +7946,252 @@
             "slotMinimum": 8,
             "slotMaximum": 8,
             "coverage": "顺序已核对",
-            "routeVariants": [],
+            "variantLabel": "终端分支（承接上方公共前置）",
+            "routeVariants": [
+                {
+                    "title": "太阳机械天使线（第一架取得太阳战机；推荐）",
+                    "steps": [
+                        {
+                            "name": "太阳机械天使",
+                            "condition": "太阳战机是三架战机中第一架取得的战机；取得“念心合体、GO！机械天使！”后，由太阳战机进化。",
+                            "kind": "终端进化",
+                            "effect": "攻击力+33%、暴击率+18%、暴击伤害+78%。“无限拳”：造成伤害时，根据自身攻击距离与初始攻击距离的差值提升最终伤害。",
+                            "aliases": [
+                                "太阳天使"
+                            ],
+                            "image": "/card-chuangshiji-visual-7ae388e63d2e.jpg",
+                            "requires": [],
+                            "rarity": "终端进化",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "绝大多数情况的最优合体选择。",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        },
+                        {
+                            "name": "头翅",
+                            "condition": "完成任一机械天使合体后加入卡池。",
+                            "kind": "合体后入池",
+                            "effect": "创圣合体：自身残机降至0，所有人残机+3，全属性加成+34%，每秒主属性+0.6，攻击距离+150。获得后为机械天使开启创圣合体。",
+                            "aliases": [],
+                            "image": "/card-chuangshiji-visual-44027dea8789.jpg",
+                            "requires": [],
+                            "rarity": "UR·唯一",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "假上限，不能用于王马-凭神。",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        }
+                    ],
+                    "unresolved": ""
+                },
+                {
+                    "title": "月亮机械天使线（第一架取得月亮战机）",
+                    "steps": [
+                        {
+                            "name": "月亮机械天使",
+                            "condition": "月亮战机是三架战机中第一架取得的战机；取得“念心合体、GO！机械天使！”后，由月亮战机进化。",
+                            "kind": "终端进化",
+                            "effect": "全属性增幅+18%、魔法增幅+44%、每秒回蓝+3%。“月亮弓”：造成伤害时，根据自身攻击距离与初始攻击距离的差值提升最终伤害。",
+                            "aliases": [],
+                            "image": "/card-chuangshiji-visual-0ea50e52905c.jpg",
+                            "requires": [],
+                            "rarity": "终端进化",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        },
+                        {
+                            "name": "头翅",
+                            "condition": "完成任一机械天使合体后加入卡池。",
+                            "kind": "合体后入池",
+                            "effect": "创圣合体：自身残机降至0，所有人残机+3，全属性加成+34%，每秒主属性+0.6，攻击距离+150。获得后为机械天使开启创圣合体。",
+                            "aliases": [],
+                            "image": "/card-chuangshiji-visual-44027dea8789.jpg",
+                            "requires": [],
+                            "rarity": "UR·唯一",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "假上限，不能用于王马-凭神。",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        }
+                    ],
+                    "unresolved": ""
+                },
+                {
+                    "title": "火星机械天使线（第一架取得火星战机）",
+                    "steps": [
+                        {
+                            "name": "火星机械天使",
+                            "condition": "火星战机是三架战机中第一架取得的战机；取得“念心合体、GO！机械天使！”后，由火星战机进化。",
+                            "kind": "终端进化",
+                            "effect": "冷却缩减+44、攻击间隔-24%、魔抗+18%、最大生命值+4400。“延伸剑”：造成伤害时，根据自身攻击距离与初始攻击距离的差值提升最终伤害。",
+                            "aliases": [],
+                            "image": "/card-chuangshiji-visual-04aa85e67825.jpg",
+                            "requires": [],
+                            "rarity": "终端进化",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        },
+                        {
+                            "name": "头翅",
+                            "condition": "完成任一机械天使合体后加入卡池。",
+                            "kind": "合体后入池",
+                            "effect": "创圣合体：自身残机降至0，所有人残机+3，全属性加成+34%，每秒主属性+0.6，攻击距离+150。获得后为机械天使开启创圣合体。",
+                            "aliases": [],
+                            "image": "/card-chuangshiji-visual-44027dea8789.jpg",
+                            "requires": [],
+                            "rarity": "UR·唯一",
+                            "guideRank": "",
+                            "slots": "",
+                            "guide": "假上限，不能用于王马-凭神。",
+                            "source": "腾讯文档《美好的一天文本》· 创圣纪页"
+                        }
+                    ],
+                    "unresolved": ""
+                }
+            ],
             "routeSteps": [
                 {
                     "name": "创圣纪",
                     "condition": "",
                     "kind": "入口",
-                    "effect": "",
+                    "effect": "全属性+17，最大生命+200，残机-1。",
                     "aliases": [],
                     "image": "",
                     "requires": [],
-                    "rarity": "入口",
+                    "rarity": "R",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
                     "name": "阿波罗",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
+                    "condition": "获得创圣纪，且尚未获得丽娜。",
+                    "kind": "驾驶员",
+                    "effect": "全属性+12，攻击力+50；野兽直觉：物理增幅+10%、暴击率+3%、闪避率+7%。抽取后将太阳战机加入卡池。",
                     "aliases": [],
-                    "image": "/card-chuangshiji-0fd642b259e5.jpg",
+                    "image": "/card-chuangshiji-visual-82fbc327d162.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
-                    "name": "太阳战机",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "name": "太阳战机（Vector Sola）",
+                    "condition": "获得阿波罗后加入卡池。",
+                    "kind": "战机",
+                    "effect": "攻击力+188、暴击率+8%、暴击伤害+29%、主属性+189、百分比破甲+15%。",
+                    "aliases": [
+                        "太阳战机",
+                        "Vector Sola"
+                    ],
+                    "image": "/card-chuangshiji-visual-4695cbe07633.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SSR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
-                    "name": "西尔维亚·德·艾莉西亚",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "name": "西尔维娅·德·艾莉西娅",
+                    "condition": "获得创圣纪，且尚未获得丽娜。",
+                    "kind": "驾驶员",
+                    "effect": "全属性+10、暴击伤害+9%、魔法增幅+15%。抽取后将月亮战机加入卡池。",
+                    "aliases": [
+                        "西尔维亚·德·艾莉西亚"
+                    ],
+                    "image": "/card-chuangshiji-visual-1142a8f955c9.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
-                    "name": "月亮战机",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "name": "月亮战机（Vector Luna）",
+                    "condition": "获得西尔维娅·德·艾莉西娅后加入卡池。",
+                    "kind": "战机",
+                    "effect": "主属性+182、回蓝+1.5%、魔法增幅+29%。",
+                    "aliases": [
+                        "月亮战机",
+                        "Vector Luna"
+                    ],
+                    "image": "/card-chuangshiji-visual-437788ffc008.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SSR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
-                    "name": "西尔维亚·席利乌斯",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "name": "西尔维娅·席利乌斯",
+                    "condition": "获得创圣纪，且尚未获得丽娜。",
+                    "kind": "驾驶员",
+                    "effect": "全属性+11、移动速度+30、攻击速度+34、攻击间隔-7%。",
+                    "aliases": [
+                        "西尔维亚·席利乌斯"
+                    ],
+                    "image": "/card-chuangshiji-visual-597bcde5a153.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
-                    "name": "火星战机",
-                    "condition": "",
-                    "kind": "抽卡",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "name": "火星战机（Vector Mares）",
+                    "condition": "获得西尔维娅·席利乌斯后加入卡池。",
+                    "kind": "战机",
+                    "effect": "主属性+185、移动速度+80、技能急速+25、攻击间隔-18%。",
+                    "aliases": [
+                        "火星战机",
+                        "Vector Mares"
+                    ],
+                    "image": "/card-chuangshiji-visual-8c8fa1616e61.jpg",
                     "requires": [],
-                    "rarity": "抽卡",
+                    "rarity": "SSR",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 },
                 {
                     "name": "念心合体，GO！机械天使！",
-                    "condition": "三人组战机齐全后入池；不占格。",
-                    "kind": "不占格事件",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
+                    "condition": "太阳、月亮、火星三架战机全部取得后加入卡池；此卡不占格。取得时会把第一架获得的战机进化为对应机械天使。",
+                    "kind": "不占格合体",
+                    "effect": "全属性加成+18%、攻击距离+200、主属性+333。机械天使对超过600的攻击距离增幅只按对应数值的1/10计算。",
+                    "aliases": [
+                        "念心合体、GO！机械天使！",
+                        "念心合体"
+                    ],
+                    "image": "/card-chuangshiji-visual-098d5d021ef0.jpg",
                     "requires": [],
                     "rarity": "不占格事件",
                     "guideRank": "",
                     "slots": "",
                     "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
-                },
-                {
-                    "name": "太阳／火星机械天使",
-                    "condition": "先拿太阳战机成太阳机械天使，先拿火星战机成火星机械天使；是拿卡顺序分支，不是两个机体都取得。",
-                    "kind": "互斥分支",
-                    "effect": "",
-                    "aliases": [],
-                    "image": "",
-                    "requires": [],
-                    "rarity": "互斥分支",
-                    "guideRank": "",
-                    "slots": "",
-                    "guide": "",
-                    "source": "创圣原页三人组／三战机／合体。"
+                    "source": "腾讯文档《美好的一天文本》· 创圣纪页"
                 }
             ],
-            "reviewNote": "",
-            "reviewSource": "创圣原页三人组／三战机／合体。",
-            "reviewGaps": [
-                "太阳战机",
-                "西尔维亚·德·艾莉西亚",
-                "月亮战机",
-                "西尔维亚·席利乌斯",
-                "火星战机",
-                "念心合体，GO！机械天使！"
-            ],
+            "reviewNote": "三组驾驶员／战机是并行前置，取得顺序可变；列表按原文排列，不代表必须依次抽取。第一架取得的战机决定太阳、月亮、火星三种互斥终端；合体完成后，头翅加入卡池。",
+            "reviewSource": "腾讯文档《美好的一天文本》“创圣纪”页；本地 Excel《不美好的一天神秘文本》“天赋排行”L15及“部分天赋热知识备忘”C63。",
+            "reviewGaps": [],
             "reviewUnresolved": "",
             "reviewIssues": [
-                "旧版没有保存逐步骤的原文对应关系，“完整”仅由卡数推导，已撤销该结论。",
-                "旧路线含未识别卡名或识别残片，不能据此确认分支。",
-                "已按原页对应角色／从者分段重新记录前置和后续，未使用旧版格数补卡结果。",
-                "卡图尚未完成逐图确认：太阳战机、西尔维亚·德·艾莉西亚、月亮战机、西尔维亚·席利乌斯、火星战机、念心合体，GO！机械天使！"
+                "三组驾驶员／战机为并行前置，三架战机全部取得后才会把“念心合体、GO！机械天使！”加入卡池。",
+                "机械天使形态由第一架取得的战机决定：太阳、月亮、火星三种终端互斥；旧版漏记了月亮机械天使。",
+                "头翅是任一机械天使合体完成后加入卡池的后续卡；Excel 备注标明它是假上限，不能用于王马-凭神。",
+                "本地 Excel 建议绝大多数情况优先太阳机械天使；每增加100攻击距离约提升30%最终伤害，超过600后的部分约为3%。"
             ]
         },
         {

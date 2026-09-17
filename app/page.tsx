@@ -7,7 +7,7 @@ import data from './combined-data.json';
 type View='routes'|'talents'|'characters';
 type RankItem={rank:string;name:string;slots:string;summary:string;image:string;routeId:string;familySlug:string};
 type Step={name:string;kind:string;condition:string;effect:string;image:string;aliases?:string[]};
-type TalentRoute={id:string;name:string;rank:string;slots:string;summary:string;image:string;familySlug:string;familyName:string;coverage:string;routeSteps:Step[];routeVariants?:{title:string;steps:Step[];unresolved:string}[];reviewNote:string;reviewSource:string;reviewGaps:string[];reviewUnresolved:string;reviewIssues:string[]};
+type TalentRoute={id:string;name:string;rank:string;slots:string;summary:string;image:string;familySlug:string;familyName:string;coverage:string;routeSteps:Step[];routeVariants?:{title:string;steps:Step[];unresolved:string}[];variantLabel?:string;reviewNote:string;reviewSource:string;reviewGaps:string[];reviewUnresolved:string;reviewIssues:string[]};
 type TextRecord={title:string;label:string;text:string};
 type Character={rank:string;name:string;summary:string;analysis:TextRecord[];builds:TextRecord[]};
 type Family={slug:string;notes:{title:string;tags:string;text:string}[]};
@@ -29,7 +29,7 @@ function Rank({value}:{value:string}){return <span className={`rank ${rankTone[v
 function includes(text:string,q:string){return text.toLowerCase().includes(q.trim().toLowerCase())}
 function allSteps(route:TalentRoute){return [...route.routeSteps,...(route.routeVariants??[]).flatMap(variant=>variant.steps)]}
 function routeSearchText(route:TalentRoute){return [route.name,route.rank,route.familyName,route.summary,route.coverage,...allSteps(route).flatMap(step=>[step.name,...(step.aliases??[]),step.condition,step.effect])].join(' ')}
-function matchingCards(route:TalentRoute,q:string){return allSteps(route).filter(step=>includes([step.name,...(step.aliases??[])].join(' '),q)).map(step=>step.name).filter((name,index,names)=>names.indexOf(name)===index)}
+function matchingCards(route:TalentRoute,q:string){if(!q.trim())return [];return allSteps(route).filter(step=>includes([step.name,...(step.aliases??[])].join(' '),q)).map(step=>step.name).filter((name,index,names)=>names.indexOf(name)===index)}
 function canonicalRouteTitle(value:string){return value.replace(/^[\d①②③④⑤⑥⑦⑧⑨⑩⓪~～\-—\s]+/,'').replace(/旧十年/g,'旧十').replace(/[\s·・]/g,'').toLowerCase()}
 function isMetricRecord(record:TextRecord){const value=record.text.trim();return scoreDimensions.includes(value)||scorePattern.test(value)}
 
@@ -70,8 +70,9 @@ function StructuredNotes({records,omitMetrics=false}:{records:TextRecord[];omitM
 }
 
 function RouteSteps({route}:{route:TalentRoute}){
+  const stepSummary=route.routeVariants?.length?`${route.routeSteps.length} 个公共步骤／${route.routeVariants.length} 条终端分支`:`${route.routeSteps.length} 个步骤／条件`;
   return <section className="route-unit">
-    <div className="section-title"><div><span>原文分支记录 · 占格数不决定步骤数</span><h2>{route.name} 拿卡与条件</h2></div><small>{route.routeSteps.length?`${route.routeSteps.length} 个步骤／条件`:'旧错误链条已撤下'}</small></div>
+    <div className="section-title"><div><span>原文分支记录 · 占格数不决定步骤数</span><h2>{route.name} 拿卡与条件</h2></div><small>{route.routeSteps.length?stepSummary:'旧错误链条已撤下'}</small></div>
     <div className="review-summary"><b>{route.coverage}</b>
       {route.reviewNote&&<p>{route.reviewNote}</p>}
       {route.reviewUnresolved&&<p className="review-warning"><AlertTriangle/>{route.reviewUnresolved}</p>}
@@ -79,7 +80,7 @@ function RouteSteps({route}:{route:TalentRoute}){
       {route.reviewSource&&<small>核对依据：{route.reviewSource}</small>}
     </div>
     {[{title:'',steps:route.routeSteps,unresolved:''},...(route.routeVariants??[])].filter(group=>group.steps.length>0).map((group,g)=><section key={g} className="route-variant">
-      {group.title&&<h3>{group.title} · 独立完整分支</h3>}
+      {group.title&&<h3>{group.title} · {route.variantLabel??'独立完整分支'}</h3>}
       {group.unresolved&&<p className="review-warning">{group.unresolved}</p>}
       <div className="route-chain reviewed-chain">{group.steps.map((step,index)=><div className="chain-row" key={`${step.name}-${index}`}>
         <div className="chain-line"><span>{index+1}</span></div><article className="route-card">
@@ -120,7 +121,7 @@ export default function Home(){
       <section className="content">
         {query.trim()&&<section className="card-search-results"><header><div><span>单卡路线检索</span><h2>“{query.trim()}”</h2></div><b>{cardMatches.length} 条包含路线</b></header>{cardMatches.length?<div>{cardMatches.map(({route,cards})=><button key={route.id} onClick={()=>openRoute(route,true)}><img src={route.image} alt=""/><span><strong>{route.name}</strong><small>{route.familyName} · {route.rank} · 包含：{cards.join('、')}</small></span><ChevronRight/></button>)}</div>:<p>{filteredRoutes.length?'未命中具体卡名；下方显示的是标题、条件或说明中的相关路线。':'没有找到包含这张卡的终端路线。'}</p>}</section>}
         <div className="audit-banner"><AlertTriangle/><p>{data.routeAudit.transcribed} 个终端均已录入：{verifiedRouteCount} 条顺序已核对，{unresolvedRouteCount} 条仍有条件待确认，另有 {missingCardImageCount} 项卡图待补。Excel 占格数与事件／进化步骤数分开显示，不再用占格数推算路线完整度。</p></div>
-        <div className="terminal-hero"><img src={currentRoute.image} alt={`${currentRoute.name} Excel 原图`}/><div className="terminal-title"><div className="title-line"><Rank value={currentRoute.rank}/><span>{currentRoute.familyName} · 指定终端</span></div><h1>{currentRoute.name}</h1><p>{currentRoute.summary}</p></div><div className="route-stats"><span><b>{currentRoute.routeSteps.length||'待核对'}</b>步骤／条件</span><span><b>{currentRoute.slots}</b>Excel 占格标注</span><span className="coverage-state warn"><b>{currentRoute.coverage}</b>不按卡数推算占格</span></div></div>
+        <div className="terminal-hero"><img src={currentRoute.image} alt={`${currentRoute.name} Excel 原图`}/><div className="terminal-title"><div className="title-line"><Rank value={currentRoute.rank}/><span>{currentRoute.familyName} · 指定终端</span></div><h1>{currentRoute.name}</h1><p>{currentRoute.summary}</p></div><div className="route-stats"><span><b>{currentRoute.routeSteps.length||'待核对'}</b>{currentRoute.routeVariants?.length?`公共步骤／${currentRoute.routeVariants.length} 条终端分支`:'步骤／条件'}</span><span><b>{currentRoute.slots}</b>Excel 占格标注</span><span className="coverage-state warn"><b>{currentRoute.coverage}</b>不按卡数推算占格</span></div></div>
         <RouteSteps route={currentRoute}/>
         {notes.length>0&&<section className="route-unit"><div className="section-title"><h2>Excel 对本终端的补充说明</h2></div><div className="route-note-list">{notes.map((note,index)=><div key={index}><span>{note.tags}</span><p>{note.text}</p></div>)}</div></section>}
         {siblings.length>0&&<section className="sibling-routes"><header>同系列其他终端（独立路线）</header><div>{siblings.map(route=><button key={route.id} onClick={()=>openRoute(route)}><img src={route.image} alt="" loading="lazy"/><span><Rank value={route.rank}/><b>{route.name}</b><small>{route.coverage} · {route.slots} 格</small></span></button>)}</div></section>}
